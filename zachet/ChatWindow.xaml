@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfChatApp.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}" Height="450" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="chatTextBox"
+                 Grid.Row="0"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 Margin="0,0,0,10"/>
+
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <Button DockPanel.Dock="Right"
+                    Content="Отправить"
+                    Width="80"
+                    Margin="10,0,0,0"
+                    Click="SendButton_Click"/>
+            <TextBox x:Name="messageTextBox"
+                     KeyDown="MessageTextBox_KeyDown"/>
+        </DockPanel>
+    </Grid>
+</Window>
